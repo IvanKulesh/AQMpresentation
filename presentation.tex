@@ -13,6 +13,9 @@
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{comment}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{braket}
 \usepackage{MnSymbol,wasysym}
 \usepackage{physics}
 
@@ -28,9 +31,9 @@
 \renewcommand{\cite}[1]{\footnote<.->[frame]{\fullcite{#1}}}
 
 
-\title[]{The Title of the Presentation}
+\title[]{The Fermi Hole}
 \institute[]{Delft University of Technology, The Netherlands}
-\author{First Author \and Second Author}
+\author{Ivan Kulesh \and Martijn Papendrecht}
 %\date{}
 
 \begin{document}
@@ -44,6 +47,74 @@
 }
 
 \include{part_b}
+
+\begin{frame}{Title}
+Begin with the equations.
+\end{frame}
+
+\begin{frame}
+\def\x{\textbf{x}}
+\def\V{\mathcal{V}}
+\begin{align*}
+\ket{\phi_\sigma(\x)} &= \hat{\psi}_\sigma(\x)\ket{g} \\
+\hat{\psi}_\sigma(\x) &= \sum_k \hat{c}_{k,\sigma} \psi_{k,\sigma}(\x) \\
+\psi_{k}(\vec{x}) &= \frac{1}{\sqrt{\V}} e^{-i\vec{k} \cdot \vec{x}}
+\end{align*}
+
+\begin{align*}
+\bra{\phi_\sigma(\x)}\hat{\psi}_{\sigma'}^\dagger(\x')\hat{\psi}_{\sigma'}(\x')\ket{\psi_\sigma(\x)} \\
+\bra{g}\hat{\psi}_\sigma^\dagger(\x)\hat{\psi}_{\sigma'}^\dagger(\x')\hat{\psi}_{\sigma'}(\x')\hat{\psi}_\sigma(\x)\ket{g} \\
+\bra{g}\sum_k c_{k,\sigma}^\dagger \psi_{k,\sigma}^\ast(\x) \sum_{l} c_{l,\sigma'}^\dagger \psi_{l,\sigma'}^\ast (\x') \sum_m c_{m,\sigma'} \psi_{m,\sigma'}(\x') \sum_n c_{n,\sigma} \psi_{n,\sigma}(\x) \ket{g}
+\end{align*}
+
+Now we see two creation and two annihilation operators, but N should be conserved, so there are two cases:
+\begin{equation}
+\begin{split}
+k,\sigma = m,\sigma' \\
+l,\sigma' = n,\sigma
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+k,\sigma = n,\sigma \\
+l,\sigma' = m,\sigma'
+\end{split}
+\end{equation}
+
+In case $1$ we see $\sigma = \sigma'$ and $k=m, l=n$ so we reduce to:
+\begin{align*}
+\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x) \sum_{l} c_{l}^\dagger \psi_{l,}^\ast (\x') \sum_k c_{k} \psi_{k}(\x') \sum_l c_{l} \psi_{l}(\x) \ket{g} \\
+-\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x)  \sum_k c_{k} \psi_{k}(\x') \sum_{l} c_{l}^\dagger \psi_{l}^\ast (\x') \sum_l c_{l} \psi_{l}(\x) \ket{g} \\
+-\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x) c_{k} \psi_{k}(\x') \sum_{l} c_{l}^\dagger \psi_{l}^\ast (\x') c_{l} \psi_{l}(\x) \ket{g} \\
+-\bra{g}\sum_k c_{k}^\dagger c_{k} \psi_{k}^\ast(\x) \psi_{k}(\x') \sum_{l} c_{l}^\dagger  c_{l}\psi_{l}^\ast (\x') \psi_{l}(\x) \ket{g} \\
+-\bra{g}\sum_k c_{k}^\dagger c_{k} \frac{1}{\sqrt{\V}} e^{i\vec{k}\cdot\x} \frac{1}{\sqrt{\V}}e^{-i\vec{k}\cdot\x'} \sum_{l} c_{l}^\dagger  c_{l} \frac{1}{\sqrt{\V}}e^{i\vec{l}\cdot\x'} \frac{1}{\sqrt{\V}}e^{-i\vec{l}\cdot\x}\ket{g} \\
+\frac{-1}{\V^2}\bra{g}\sum_k c_{k}^\dagger c_{k} e^{i\vec{k}\cdot(\x-\x')} \sum_{l} c_{l}^\dagger  c_{l} e^{i\vec{l}\cdot(\x'-\x)} \ket{g} \\
+-\frac{1}{\V}\sum_k e^{i\vec{k}\cdot(\x-\x')} \bra{g} c_{k}^\dagger c_{k} \ket{g} \frac{1}{\V} \sum_l e^{i\vec{l}\cdot(\x'-\x)} \bra{g} c_{l}^\dagger  c_{l} \ket{g} \\
+-9\left(\frac{N}{2\V}\right)^2 \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2
+\end{align*}
+
+In case $2$ we see $k=n, l=m$ so we reduce to:
+\begin{align*}
+\bra{g}\sum_k c_{k,\sigma}^\dagger \psi_{k,\sigma}^\ast(\x) \sum_{l} c_{l,\sigma'}^\dagger \psi_{l,\sigma'}^\ast (\x') \sum_l c_{l,\sigma'} \psi_{l,\sigma'}(\x') \sum_k c_{k,\sigma} \psi_{k,\sigma}(\x) \ket{g} \\
++\bra{g}\sum_k c_{k,\sigma}^\dagger \psi_{k,\sigma}^\ast(\x) \sum_k c_{k,\sigma} \psi_{k,\sigma}(\x) \sum_{l} c_{l,\sigma'}^\dagger \psi_{l,\sigma'}^\ast (\x') \sum_l c_{l,\sigma'} \psi_{l,\sigma'}(\x')  \ket{g} \\
+\frac{1}{\V^2} \bra{g} \sum_k c_{k,\sigma}^\dagger c_{k,\sigma} \sum_l c_{l,\sigma'}^\dagger c_{l,\sigma'} \ket{g} \\
+\left(\frac{N}{2\V}\right)^2
+\end{align*}
+
+Thus combining the final pieces:
+\begin{align*}
+\left(\frac{N}{2\V}\right)^2 -9\delta_{\sigma\sigma'}\left(\frac{N}{2\V}\right)^2 \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2 = \left(\frac{N}{2\V}\right)^2 g_{\sigma\sigma'}(\x-\x') \\
+1 -9\delta_{\sigma\sigma'} \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2 =  g_{\sigma\sigma'}(\x-\x')
+\end{align*}
+
+And we see for $\sigma \neq \sigma'$ the density $g_{\sigma\sigma'}=1$.
+For $\sigma = \sigma'$ the density looks as follows:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{Density}
+\end{figure}
+\end{frame}
 
 \begin{frame}{Example frame 1}
 This is the first frame
