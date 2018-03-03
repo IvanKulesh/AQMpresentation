@@ -20,6 +20,7 @@
 \usepackage{MnSymbol,wasysym}
 \usepackage{physics}
 \usepackage{tikz}
+\usepackage{asymptote}
 
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
 \mode<presentation>{\usetheme{tud}}
@@ -35,6 +36,8 @@
 \newcommand{\V}{\mathcal{V}}
 \newcommand{\valk}{\text{k}}
 \newcommand{\veck}{\textbf{k}}
+\newcommand{\vecr}{\textbf{r}}
+\newcommand{\x}{\textbf{x}}
 
 \setlength{\jot}{2ex}
 
@@ -53,16 +56,20 @@
 
 }
 
-\include{fermi_gas}
-
-\include{part_b}
-
 \begin{frame}{Title}
 Begin with the equations.
 \end{frame}
 
+\include{fermi_gas}
+
+%\include{part_c1}
+
+\include{part_b}
+
+%\include{part_c2}
+
+
 \begin{frame}
-\def\x{\textbf{x}}
 \def\V{\mathcal{V}}
 \begin{align*}
 \ket{\phi_\sigma(\x)} &= \hat{\psi}_\sigma(\x)\ket{g} \\
@@ -125,17 +132,5 @@ For $\sigma = \sigma'$ the density looks as follows:
 \end{figure}
 \end{frame}
 
-\begin{frame}{Example frame 1}
-This is the first frame
-\end{frame}
-
-\begin{frame}{Example frame 2}
-\begin{block}{Example block}
-\begin{itemize}
-\item item 1
-\item item 2
-\end{itemize}
-\end{block}
-\end{frame}
 
 \end{document}

@@ -1,12 +1,209 @@
 %!TeX spellcheck = en-US,en-DE
 
-\begin{frame}{Calculating integral}
+\begin{frame}[t]{Calculating sum}
+  \vspace{0.5cm}
+  To continue we need to find
+  \only<1,3,4,5>{
+    \begin{equation*}
+      \begin{gathered}
+        F(\valk, \vecr) = \frac{1}{\mathcal{V}} \sum_{\veck} e^{- i \textbf{k}\vecr}
+        \bra{g} \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} \ket{g}
+      \end{gathered}
+    \end{equation*}
+  }
+  \only<2>{
+    \begin{equation*}
+      \begin{gathered}
+        F(\valk, \vecr) = \frac{1}{\mathcal{V}} \sum_{\veck} e^{- i \textbf{k}\vecr}\:
+        \textcolor{red}{
+        \bra{g} \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} \ket{g}
+        }
+      \end{gathered}
+    \end{equation*}
+  }
+  \only<3>{
+    \begin{block}{Number of particles operator}
+      $$ \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} = \hat n_{\textbf{k}\sigma}$$
+    \end{block}
+    %\vspace{0.5cm}
+    \begin{equation*}
+      \bra{g} \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} \ket{g} =
+      \bra{g} \hat n_{\textbf{k}\sigma} \ket{g} =
+      \begin{cases}
+        1 \quad \valk \leq \valk_F\\
+        0 \quad \valk > \valk_F
+      \end{cases}
+    \end{equation*}
+  }
 
-  \begin{equation}
-    \begin{gathered}
-      \frac{1}{\mathcal{V}} \sum_{\abs{\textbf{p}}\leq k_F} e^{- i \textbf{p}\textbf{x}}
-      \cdot d^3 \text{p} \cdot \frac{\mathcal{V}}{(2 \pi)^3} =
-    \end{gathered}
-  \end{equation}
+  \only<4>{
+    \vspace{0.5cm}
+    Heaviside step function
+    \begin{equation*}
+      \bra{g} \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} \ket{g} =
+      H(\valk_F - \abs{\veck})
+    \end{equation*}
+  }
 
+  \only<5>{
+    \vspace{0.5cm}
+    Change to summation inside the Fermi sphere
+    \begin{equation*}
+      F(\valk, \vecr) = \frac{1}{\mathcal{V}} \sum_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr}
+    \end{equation*}
+  }
+
+\end{frame}
+
+\begin{frame}{From summation to integration}
+  Multiply and divide by unit cell volume
+  \begin{equation*}
+    F(\valk, \vecr) = \frac{1}{\mathcal{V}} \sum_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr} =
+    \frac{1}{\mathcal{V}} \frac{\mathcal{V}}{ 8 \pi^3} \sum_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr} d^3\valk
+  \end{equation*}
+  \vspace{0.5cm}
+  In the limit $\mathcal{V} \to \infty$
+  \begin{equation*}
+    F(\valk, \vecr) = \frac{1}{8 \pi^3} \sum_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr} d^3\valk
+    \to
+    \frac{1}{8 \pi^3} \int_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr} d^3\valk
+  \end{equation*}
+\end{frame}
+
+\begin{frame}[t]{Evaluation of the integral}
+  \vspace{0.2cm}
+  We will integrate in spherical coordinates
+  \only<1>{
+    \begin{equation*}
+      F(\valk, \vecr) = \frac{1}{8 \pi^3} \int_{\abs{\veck}\leq \valk_F} e^{- i \textbf{k}\vecr} d^3\valk
+    \end{equation*}
+  }
+  \only<2>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{8 \pi^3} \int_{\valk = 0}^{\valk_F} \int_{\theta = 0}^{\pi} \int_{\phi = 0}^{2 \pi}
+    e^{- i \text{k}r\cos{\theta}}\text{k}^2\sin{\theta} \: d \phi d\theta d \text{k}
+  \end{equation*}
+  }
+  \vfill
+  \begin{figure}
+    \includegraphics[height=4cm]{sphcoordel}
+    %\caption{}
+    \label{sphcoordel}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Evaluation of the integral}
+  Integration over $\phi$
+
+  % \only<>{
+  % \begin{equation*}
+  %   F(\valk, \vecr) =
+  %   \frac{1}{8 \pi^3} \int_{\valk = 0}^{\valk_F} \int_{\theta = 0}^{\pi} \int_{\phi = 0}^{2 \pi}
+  %   e^{- i \text{k}r\cos{\theta}}\text{k}^2\sin{\theta} \: d \phi d\theta d \text{k}
+  % \end{equation*}
+  % }
+
+  \only<1>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{8 \pi^3} \int_{\valk = 0}^{\valk_F} \int_{\theta = 0}^{\pi}
+    \textcolor{red}{\int_{\phi = 0}^{2 \pi}}
+    e^{- i \text{k}r\cos{\theta}}\text{k}^2\sin{\theta} \: \textcolor{red}{d \phi} d\theta d \text{k}
+  \end{equation*}
+  }
+
+  \only<1>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F} \int_{\theta = 0}^{\pi}
+    e^{- i \text{k}r\cos{\theta}}\text{k}^2\sin{\theta} \: d\theta d \text{k}
+  \end{equation*}
+  }
+
+\end{frame}
+
+\begin{frame}{Evaluation of the integral}
+  Integration over $\theta$
+
+  \only<1,2>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F} \textcolor{red}{\int_{\theta = 0}^{\pi}}
+    e^{- i \text{k}r\textcolor{red}{\cos{\theta}}}\text{k}^2
+    \textcolor{red}{\sin{\theta} \: d\theta} d \text{k}
+  \end{equation*}
+  }
+
+  \only<1,2>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F} \textcolor{red}{\int_{\theta = 0}^{\pi}}
+    e^{- i \text{k}r\textcolor{red}{\cos{\theta}}}\text{k}^2 \: \textcolor{red}{-d\cos{\theta}} d \text{k}
+  \end{equation*}
+  }
+
+  \only<1>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F} \textcolor{red}{\int_{\eta = -1}^{1}}
+    e^{i \text{k}r\textcolor{red}{\eta}}\text{k}^2 \: \textcolor{red}{d\eta} d \text{k}
+  \end{equation*}
+  }
+
+  \only<2>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F}
+    \frac{2}{\text{k}r}\sin{(\text{k}r)} \: \text{k}^2 \: d \text{k}
+  \end{equation*}
+  }
+
+\end{frame}
+
+\begin{frame}[t]{Evaluation of the integral}
+  \vspace{0.3cm}
+  Integration over k
+
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{4 \pi^2} \int_{\valk = 0}^{\valk_F}
+    \frac{2}{\text{k}r}\sin{(\text{k}r)} \: \text{k}^2 \: d \text{k} =
+    \frac{1}{2 \pi^2 r^3} \int_{\valk = 0}^{\valk_F}
+    \sin{(\text{k}r)} \: \text{k} r \: d \text{k}r
+  \end{equation*}
+
+  \only<1>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{1}{2 \pi^2 r^3} \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \}
+  \end{equation*}
+  }
+
+  \only<2>{
+  \begin{equation*}
+    F(\valk, \vecr) =
+    \frac{\valk_F^3}{2 \pi^2 r^3 \valk_F^3} \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \}
+  \end{equation*}
+
+  \begin{block}{Fermi wavenumber}
+    $$ \valk_F^3 = \frac{3 \pi^2 N}{\V}$$
+  \end{block}
+  }
+\end{frame}
+
+\begin{frame}{Evaluation of the integral}
+  \begin{equation*}
+    \frac{1}{\mathcal{V}} \sum_{\veck} e^{- i \textbf{k}\vecr}
+    \bra{g} \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} \ket{g} =
+    \left ( \frac{N}{2\mathcal{V}} \right )
+    \frac{3 \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \} }{(k_F r)^3}
+  \end{equation*}
+
+  \vspace{1cm}
+  No divergence at zero: at $\valk_F r \to 0 \iff r \ll \lambda_F$
+  \begin{equation*}
+    3 \frac{\sin(k_F r) - k_F r \cos(k_F r)}{(k_F r)^3} \approx
+    3 \frac{x - x^3/6 - x (1 - x^2/2)}{x^3} = 3 \frac{1}{3} = 1
+  \end{equation*}
 \end{frame}
