@@ -12,9 +12,9 @@
     \begin{gathered}
       \rho(\x', \sigma) =
       \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}   \hat{c}_{\textbf{l},\sigma}^\dagger \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma} \ket{g}
-      \psi_{\veck,\sigma}^\ast(\x) 
-       \psi_{\textbf{l},\sigma}^\ast (\x') \psi_{\textbf{k},\sigma} (\x') \psi_{\textbf{l},\sigma} (\x)
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger}   \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x) 
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{k}\sigma} (\x') \psi_{\textbf{l}\sigma} (\x)
     \end{gathered}
   \end{equation*}
   }
@@ -23,10 +23,10 @@
     \begin{equation*}
     \begin{gathered}
       \rho(\x', \sigma) =
-      \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}  \hat{c}_{\textbf{l},\sigma}^\dagger  \hat{c}_{\textbf{l},\sigma} \ket{g}
-      \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{k},\sigma} (\x')
-       \psi_{\textbf{l},\sigma}^\ast (\x') \psi_{\textbf{l},\sigma} (\x)
+      -\sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x) \psi_{\textbf{k}\sigma} (\x')
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x)
     \end{gathered}
   \end{equation*}
   }
@@ -34,11 +34,10 @@
   \only<4>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
-      e^{i\vec{k}\cdot\x}e^{-i\vec{k}\cdot\x'}e^{-i\vec{l}\cdot\x}e^{i\vec{l}\cdot\x'}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{-i\vec{k}\cdot\x}e^{i\vec{k}\cdot\x'}e^{i\vec{l}\cdot\x}e^{-i\vec{l}\cdot\x'}
     \end{gathered}
   \end{equation*}
   }
@@ -46,10 +45,9 @@
   \only<5>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
     \end{gathered}
   \end{equation*}
@@ -58,9 +56,9 @@
   \only<2>{
   \begin{block}{Commutation for fermions}
     \begin{equation*}
-      \{ \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{k},\sigma} \} = \delta_{k,l} \implies
-      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{k},\sigma} =
-      - \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma'}^\dagger + \delta_{k,l}
+      \{ \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \} = \delta_{k,l} \implies
+      \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} =
+      - \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma}^\dagger + \delta_{k,l}
     \end{equation*}
   \end{block}
   }
@@ -69,8 +67,8 @@
   \begin{block}{Wave functions}
     \begin{equation*}
       \begin{gathered}
-        \psi_{\textbf{k},\sigma}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}\\
-        \psi_{\textbf{k},\sigma}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}
+        \psi_{\textbf{k}\sigma}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}\\
+        \psi_{\textbf{k}\sigma}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}
       \end{gathered}
     \end{equation*}
   \end{block}
@@ -82,34 +80,30 @@
 Insert identity operator:
 \only<1>{
   \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger \: \hat{\mathcal{I}} \:
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \hat{\mathcal{I}} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
     \end{gathered}
   \end{equation*}
   }
 \only<2>{
   \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger \: \sum_{n}\ket{n}\bra{n} \:
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \sum_{n}\ket{n}\bra{n} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
     \end{gathered}
   \end{equation*}
   }
 \only<3>{
   \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger \ket{g}e^{i\vec{k}\cdot(\x-\x')}
-      \sum_{\textbf{l}}\bra{g}
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')} \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{l}\cdot(\x'-\x)}
     \end{gathered}
   \end{equation*}
@@ -121,12 +115,10 @@ Insert identity operator:
 \begin{frame}[t]{Bringing it together}
 \only<1>{
   \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger \ket{g}e^{i\vec{k}\cdot(\x-\x')}
-      \sum_{\textbf{l}}\bra{g}
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')} \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{l}\cdot(\x'-\x)}
     \end{gathered}
   \end{equation*}
@@ -139,14 +131,12 @@ Insert identity operator:
   \end{equation*}
 }
 
-\only<2>{
+\only<2,3>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
       \textcolor{red}{\sum_{\veck}
-      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger \ket{g}e^{i\vec{k}\cdot(\x-\x')}}
-      \textcolor{blue}{\sum_{\textbf{l}}\bra{g}
-      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')}} \textcolor{blue}{ \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{i\vec{l}\cdot(\x'-\x)}}
     \end{gathered}
   \end{equation*}
@@ -157,17 +147,26 @@ Insert identity operator:
     \left ( \frac{N}{2\mathcal{V}} \right )
     \frac{3 \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \} }{(k_F r)^3}
   \end{equation*}
-  
+}
+\only<3>{  
   \begin{equation}
-  	\rho(\x', \sigma') = \left ( \frac{N}{2\mathcal{V}} \right )^2
+  	\rho(\x', \sigma) = \left ( \frac{N}{2\mathcal{V}} \right )^2
     \left(\frac{3 \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \} }{(k_F r)^3}\right)^2
   \end{equation}
 }
 
 \end{frame}
 
-\begin{frame}[t]{Bringing it all together}
-\begin{equation}
-\left(\frac{N}{2\V}\right)^2 g_{\sigma\sigma'}(\x - \x') = \left(\frac{N}{2\V}\right)^2 - 
-\end{equation}
+\begin{frame}{Bringing it all together}
+\only<1>{
+\begin{equation*}
+\left(\frac{N}{2\V}\right)^2 g_{\sigma\sigma}(\x - \x') = \left(\frac{N}{2\V}\right)^2 - \delta_{\sigma\sigma'} \left ( \frac{N}{2\mathcal{V}} \right )^2
+    \left(\frac{3 \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \} }{(k_F r)^3}\right)^2
+\end{equation*}
+}
+\only<2>{
+\begin{equation*}
+g_{\sigma\sigma}(\x - \x') = 1 - \delta_{\sigma\sigma'} \left(\frac{3 \left \{ \sin(\valk_F r) - \valk_F r \cos(\valk_F r) \right \} }{(k_F r)^3}\right)^2
+\end{equation*}
+}
 \end{frame}
