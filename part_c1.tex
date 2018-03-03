@@ -404,3 +404,117 @@
   \end{equation*}
   }
 \end{frame}
+
+\begin{frame}[t]{Density for equal spin}
+\vspace{0.6cm}
+ If spins are equal
+  \begin{equation*}
+    \sigma = \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{m}\\
+      \textbf{l} = \textbf{n} \end{cases}
+  \end{equation*}
+
+  We can simplify expression for density:
+  \only<1,2>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger}   \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x)
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{k}\sigma} (\x') \psi_{\textbf{l}\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<3>{
+    \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) =
+      -\sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x) \psi_{\textbf{k}\sigma} (\x')
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<4>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{-i\vec{k}\cdot\x}e^{i\vec{k}\cdot\x'}e^{i\vec{l}\cdot\x}e^{-i\vec{l}\cdot\x'}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<5>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<2>{
+  \begin{block}{Commutation for fermions}
+    \begin{equation*}
+      \{ \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \} = \delta_{k,l} \implies
+      \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} =
+      - \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma}^\dagger + \delta_{k,l}
+    \end{equation*}
+  \end{block}
+  }
+
+  \only<3>{
+  \begin{block}{Wave functions}
+    \begin{equation*}
+      \begin{gathered}
+        \psi_{\textbf{k}\sigma}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}\\
+        \psi_{\textbf{k}\sigma}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}
+      \end{gathered}
+    \end{equation*}
+  \end{block}
+  }
+\end{frame}
+
+\begin{frame}[t]{Density for equal spin}
+\vspace{0.6cm}
+Insert identity operator:
+\only<1>{
+  \begin{equation*}
+      \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \hat{\mathcal{I}} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
+\only<2>{
+  \begin{equation*}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \sum_{n}\ket{n}\bra{n} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
+\only<3>{
+  \begin{equation*}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')} \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+
+}
+
+\end{frame}
