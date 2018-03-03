@@ -37,13 +37,299 @@
     \ket{\phi_\sigma(\x)} = \hat{\psi}_\sigma(\x)\ket{g}
   \end{equation*}
 
-  But we want to use momentum space. Furie tranform:
+  But we want to use momentum space:
 
+  \begin{block}{Furie tranform}
+    $$\hat{\psi}_{\veck, \sigma}(\x) = \sum_{\veck} \hat{c}_{\veck,\sigma} \psi_{\veck,\sigma}(\x)$$
+  \end{block}
   \begin{equation*}
     \begin{gathered}
-      \hat{\psi}_\sigma(\x) = \sum_{\veck} \hat{c}_{\veck,\sigma} \psi_{\veck,\sigma}(\x)\\
-      \psi_{\veck,\sigma}(\x) = \frac{1}{\sqrt{\V}} e^{i\veck \cdot \x} \: \boldsymbol{\sigma}
+      \psi_{\veck, \sigma}(\x) = \frac{1}{\sqrt{\V}} e^{i\veck \cdot \x} \: \boldsymbol{\sigma}
     \end{gathered}
   \end{equation*}
+
+\end{frame}
+
+\begin{frame}{Density in momentum space}
+  \only<1>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =\\
+       \bra{g} \sum_{\veck} \hat{c}_{\veck,\sigma}^{\dagger} \psi_{\veck,\sigma}^\ast(\x)
+      \sum_{\textbf{l}} \hat{c}_{\textbf{l},\sigma'}^\dagger \psi_{\textbf{l},\sigma'}^\ast (\x')
+      \sum_{\textbf{m}} \hat{c}_{\textbf{m},\sigma'} \psi_{\textbf{m},\sigma'} (\x')
+      \sum_{\textbf{n}} \hat{c}_{\textbf{n},\sigma} \psi_{\textbf{n},\sigma} (\x) \ket{g} =\\
+      \sum_{\veck, \textbf{l}, \textbf{m}, \textbf{n}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{m},\sigma'} \hat{c}_{\textbf{n},\sigma} \ket{g}
+      \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{l},\sigma'}^\ast (\x')
+       \psi_{\textbf{m},\sigma'} (\x') \psi_{\textbf{n},\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+  \only<2>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =\\
+       \bra{g} \sum_{\veck} \hat{c}_{\veck,\sigma}^{\dagger} \psi_{\veck,\sigma}^\ast(\x)
+      \sum_{\textbf{l}} \hat{c}_{\textbf{l},\sigma'}^\dagger \psi_{\textbf{l},\sigma'}^\ast (\x')
+      \sum_{\textbf{m}} \hat{c}_{\textbf{m},\sigma'} \psi_{\textbf{m},\sigma'} (\x')
+      \sum_{\textbf{n}} \hat{c}_{\textbf{n},\sigma} \psi_{\textbf{n},\sigma} (\x) \ket{g} =\\
+      \sum_{\veck, \textbf{l}, \textbf{m}, \textbf{n}}
+      \textcolor{red}{\bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{m},\sigma'} \hat{c}_{\textbf{n},\sigma} \ket{g} }
+      \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{l},\sigma'}^\ast (\x')
+       \psi_{\textbf{m},\sigma'} (\x') \psi_{\textbf{n},\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+\end{frame}
+
+\begin{frame}[t]{Allowed operators}
+  \vspace{0.3cm}
+  We will focus on the expression
+  \begin{equation*}
+    \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+    \hat{c}_{\textbf{m},\sigma'} \hat{c}_{\textbf{n},\sigma} \ket{g}
+  \end{equation*}
+
+  \vspace{0.2cm}
+
+  \only<1>{
+  Removing two particles:
+  \begin{equation*}
+    \ket{g}
+  \end{equation*}
+
+  \begin{figure}
+    \begin{tikzpicture}
+      \foreach \xbox in {0, ..., 5} {
+        \def\ybox{0}
+        \node at (\xbox+0.5,\ybox+0.5) {$\uparrow \downarrow$};
+        \path[draw,thick] (\xbox,\ybox) rectangle (\xbox+1,\ybox+1);
+      }
+      \path[draw,dashed,thick] (6,0) -- (7,0) (6,1) -- (7,1);
+    \end{tikzpicture}
+  \end{figure}
+  }
+
+  \only<2>{
+  Removing two particles:
+  \begin{equation*}
+    \hat{c}_{\textbf{n},\sigma} \ket{g}
+  \end{equation*}
+
+  \begin{figure}
+    \begin{tikzpicture}
+      \foreach \xbox in {0, ..., 3} {
+        \def\ybox{0}
+        \node at (\xbox+0.5,\ybox+0.5) {$\uparrow \downarrow$};
+        \path[draw,thick] (\xbox,\ybox) rectangle (\xbox+1,\ybox+1);
+      }
+
+      \def\xbox{4}
+      \node at (\xbox+0.5,0+0.5) {$\: \downarrow$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+      \node at (\xbox+0.5,0-0.5) {\textbf{n}};
+
+      \def\xbox{5}
+      \node at (\xbox+0.5,0+0.5) {$\uparrow \downarrow$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+
+      \path[draw,dashed,thick] (6,0) -- (7,0) (6,1) -- (7,1);
+    \end{tikzpicture}
+  \end{figure}
+  }
+
+  \only<3>{
+  Removing two particles:
+  \begin{equation*}
+    \hat{c}_{\textbf{m},\sigma'} \hat{c}_{\textbf{n},\sigma} \ket{g}
+  \end{equation*}
+
+  \begin{figure}
+    \begin{tikzpicture}
+      \foreach \xbox in {0, ..., 1} {
+        \def\ybox{0}
+        \node at (\xbox+0.5,\ybox+0.5) {$\uparrow \downarrow$};
+        \path[draw,thick] (\xbox,\ybox) rectangle (\xbox+1,\ybox+1);
+      }
+
+      \def\xbox{2}
+      \node at (\xbox+0.5,0+0.5) {$\uparrow \:$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+      \node at (\xbox+0.5,0-0.5) {\textbf{m}};
+
+      \def\xbox{3}
+      \node at (\xbox+0.5,0+0.5) {$\uparrow \downarrow$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+
+      \def\xbox{4}
+      \node at (\xbox+0.5,0+0.5) {$\: \downarrow$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+      \node at (\xbox+0.5,0-0.5) {\textbf{n}};
+
+      \def\xbox{5}
+      \node at (\xbox+0.5,0+0.5) {$\uparrow \downarrow$};
+      \path[draw,thick] (\xbox,0) rectangle (\xbox+1,0+1);
+
+      \path[draw,dashed,thick] (6,0) -- (7,0) (6,1) -- (7,1);
+    \end{tikzpicture}
+  \end{figure}
+  }
+
+  \only<4>{
+  Restoring the state:
+  \begin{equation*}
+    \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+    \hat{c}_{\textbf{m},\sigma'} \hat{c}_{\textbf{n},\sigma} \ket{g}
+  \end{equation*}
+  \begin{figure}
+    \begin{tikzpicture}
+      \foreach \xbox in {0, ..., 5} {
+        \def\ybox{0}
+        \node at (\xbox+0.5,\ybox+0.5) {$\uparrow \downarrow$};
+        \path[draw,thick] (\xbox,\ybox) rectangle (\xbox+1,\ybox+1);
+      }
+      \node at (2+0.5,0-0.5) {\textbf{m}};
+      \node at (4+0.5,0-0.5) {\textbf{n}};
+      \path[draw,dashed,thick] (6,0) -- (7,0) (6,1) -- (7,1);
+    \end{tikzpicture}
+  \end{figure}
+  }
+
+  \only<5>{
+  \begin{block}{Allowed indices}
+    \begin{equation*}
+      \begin{gathered}
+        \begin{cases} \textbf{k}, \sigma = \textbf{m}, \sigma'\\
+          \textbf{l}, \sigma' = \textbf{n}, \sigma \end{cases}
+          \qquad
+          \begin{cases}   \textbf{k}, \sigma = \textbf{n}, \sigma\\
+            \textbf{l}, \sigma' = \textbf{m}, \sigma' \end{cases}
+      \end{gathered}
+    \end{equation*}
+  \end{block}
+  }
+\end{frame}
+
+\begin{frame}[t]{Density for different spin}
+  \vspace{0.3cm}
+  If spins are different
+  \begin{equation*}
+    \sigma \ne \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{n}\\
+      \textbf{l} = \textbf{m} \end{cases}
+  \end{equation*}
+
+  We can simplify expression for density:
+  \only<1,2>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{l},\sigma'}^\ast (\x')
+       \psi_{\textbf{l},\sigma'} (\x') \psi_{\textbf{k},\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<3>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+      \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{k},\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<4>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<2>{
+  \begin{block}{Wave functions}
+    \begin{equation*}
+      \begin{gathered}
+        \psi_{\textbf{l},\sigma'}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{l}\cdot \x'} \: \boldsymbol{\sigma'}\\
+        \psi_{\textbf{l},\sigma'}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{l}\cdot \x'} \: \boldsymbol{\sigma'}
+      \end{gathered}
+    \end{equation*}
+  \end{block}
+  }
+\end{frame}
+
+\begin{frame}[t]{Density for different spin}
+  \vspace{0.3cm}
+  If spins are different
+  \begin{equation*}
+    \sigma \ne \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{n}\\
+      \textbf{l} = \textbf{m} \end{cases}
+  \end{equation*}
+
+  We can simplify expression for density:
+  \only<1>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<2,3>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      -\sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
+      \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma'} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<4>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<1,2>{
+  \begin{block}{Commutation for fermions}
+    \begin{equation*}
+      \{ \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \} = 0 \implies
+      \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} =
+      - \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma'}
+    \end{equation*}
+  \end{block}
+  }
+
+  \only<3,4>{
+  \begin{block}{Commutation for fermions}
+    \begin{equation*}
+      \{ \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{k},\sigma} \} = \delta_{k,l} \implies
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{k},\sigma} =
+      - \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma'}^\dagger + \delta_{k,l}
+    \end{equation*}
+  \end{block}
+  }
 
 \end{frame}
