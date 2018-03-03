@@ -19,6 +19,7 @@
 \usepackage{braket}
 \usepackage{MnSymbol,wasysym}
 \usepackage{physics}
+\usepackage{tikz}
 
 \setbeamertemplate{navigation symbols}{} % remove navigation symbols
 \mode<presentation>{\usetheme{tud}}
@@ -31,9 +32,11 @@
 \setbeamerfont{footnote}{size=\tiny}
 \renewcommand{\cite}[1]{\footnote<.->[frame]{\fullcite{#1}}}
 
-\newcommand{\V}{\mathbb{V}}
+\newcommand{\V}{\mathcal{V}}
 \newcommand{\valk}{\text{k}}
 \newcommand{\veck}{\textbf{k}}
+
+\setlength{\jot}{2ex}
 
 \title[]{The Fermi Hole}
 \institute[]{Delft University of Technology, The Netherlands}
