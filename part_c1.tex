@@ -1,0 +1,49 @@
+
+\begin{frame}{Removing particle}
+  We remove a particle at \textbf{position x} with a spin $\sigma$
+  \begin{equation*}
+    \ket{\phi_\sigma(\x)} = \hat{\psi}_\sigma(\x)\ket{g}
+  \end{equation*}
+
+  \vspace{0.5cm}
+  Particle density at this state:
+  \begin{equation*}
+    \rho(\x', \sigma') = \bra{\phi_\sigma(\x)}\hat{\psi}_{\sigma'}^\dagger(\x')\hat{\psi}_{\sigma'}(\x')\ket{\phi_\sigma(\x)}
+  \end{equation*}
+
+  \vspace{0.5cm}
+  We will show that the density equals to
+  \only<1>{
+  \begin{equation*}
+    \left ( \frac{N}{2\V}\right )^2 \: g_{\sigma \sigma'}(\x - \x')
+  \end{equation*}
+  }
+  \only<2>{
+  \begin{equation*}
+    \textcolor{red}{\left ( \frac{N}{2\V}\right )^2} \: g_{\sigma \sigma'}(\x - \x')
+  \end{equation*}
+  }
+  \only<3>{
+  \begin{equation*}
+    \left ( \frac{N}{2\V}\right )^2 \: \textcolor{red}{g_{\sigma \sigma'}(\x - \x')}
+  \end{equation*}
+  }
+
+\end{frame}
+
+\begin{frame}{Removing particle}
+  The state after removing a particle. In coordinate space:
+  \begin{equation*}
+    \ket{\phi_\sigma(\x)} = \hat{\psi}_\sigma(\x)\ket{g}
+  \end{equation*}
+
+  But we want to use momentum space. Furie tranform:
+
+  \begin{equation*}
+    \begin{gathered}
+      \hat{\psi}_\sigma(\x) = \sum_{\veck} \hat{c}_{\veck,\sigma} \psi_{\veck,\sigma}(\x)\\
+      \psi_{\veck,\sigma}(\x) = \frac{1}{\sqrt{\V}} e^{i\veck \cdot \x} \: \boldsymbol{\sigma}
+    \end{gathered}
+  \end{equation*}
+
+\end{frame}
