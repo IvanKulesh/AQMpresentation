@@ -238,8 +238,8 @@
   \only<3>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') =
-      \frac{1}{\V} \sum_{\veck, \textbf{l}}
+      \rho(\x', \sigma') = \frac{1}{\V}
+      \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
       \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
       \psi_{\veck,\sigma}^\ast(\x) \psi_{\textbf{k},\sigma} (\x)
@@ -250,8 +250,8 @@
   \only<4>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') =
-      \frac{1}{\V^2}\sum_{\veck, \textbf{l}}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
       \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
     \end{gathered}
@@ -282,8 +282,7 @@
   \only<1>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') =
-      \frac{1}{\V^2}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
       \hat{c}_{\textbf{l},\sigma'} \hat{c}_{\textbf{k},\sigma} \ket{g}
@@ -294,8 +293,8 @@
   \only<2,3>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') =
-      -\frac{1}{\V^2}\sum_{\veck, \textbf{l}}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      -\sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger}  \hat{c}_{\textbf{l},\sigma'}^\dagger
       \hat{c}_{\textbf{k},\sigma} \hat{c}_{\textbf{l},\sigma'} \ket{g}
     \end{gathered}
@@ -305,8 +304,7 @@
   \only<4>{
   \begin{equation*}
     \begin{gathered}
-      \rho(\x', \sigma') =
-      \frac{1}{\V^2}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
       \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}
@@ -334,4 +332,73 @@
   \end{block}
   }
 
+\end{frame}
+
+
+\begin{frame}[t]{Density for different spin}
+  \vspace{0.6cm}
+  Insert identity operator:
+  \only<1,2>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma} \: \hat{\mathcal{I}} \:
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<3>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma} \: \sum_{n}\ket{n}\bra{n} \:
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<4,5>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma} \ket{g}\:\bra{g}
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}
+    \end{gathered}
+  \end{equation*}
+  }
+
+  \only<2,3>{
+  \begin{block}{Identuty}
+    \begin{equation*}
+      \hat{\mathcal{I}} = \sum_{n}\ket{n}\bra{n}
+    \end{equation*}
+  \end{block}
+  }
+
+  \only<3,4>{
+  \begin{block}{Fock space}
+    \begin{equation*}
+      \bra{n}\ket{g} = \delta_{n,g}
+    \end{equation*}
+  \end{block}
+  }
+  \only<4,5>{
+  \begin{block}{Number of particles operator}
+    $$ \hat c^{\dagger}_{\textbf{k}\sigma} \hat c_{\textbf{k}\sigma} = \hat n_{\textbf{k}\sigma}$$
+  \end{block}
+  }
+  \only<5>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma') = \frac{1}{\V^2}
+      \left [ \sum_{\veck} \bra{g} \hat n_{\textbf{k}\sigma} \ket{g} \right ] \cdot
+      \left [  \sum_{\textbf{l}} \bra{g} \hat n_{\textbf{l}\sigma'} \ket{g} \right ]
+      =   \left ( \frac{N}{2\V}\right )^2
+    \end{gathered}
+  \end{equation*}
+  }
 \end{frame}
