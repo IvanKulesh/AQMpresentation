@@ -1,37 +1,113 @@
+\begin{frame}[t]{Density for equal spin}
+\vspace{0.6cm}
+ If spins are equal
+  \begin{equation*}
+    \sigma = \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{m}\\
+      \textbf{l} = \textbf{n} \end{cases}
+  \end{equation*}
 
+  We can simplify expression for density:
+  \only<1,2>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) =
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger}   \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x)
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{k}\sigma} (\x') \psi_{\textbf{l}\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
 
+  \only<3>{
+    \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) =
+      -\sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      \psi_{\veck\sigma}^\ast(\x) \psi_{\textbf{k}\sigma} (\x')
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x)
+    \end{gathered}
+  \end{equation*}
+  }
 
-In case $1$ we see $\sigma = \sigma'$ and $k=m, l=n$ so we reduce to:
-\begin{align*}
-\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x) \sum_{l} c_{l}^\dagger \psi_{l,}^\ast (\x') \sum_k c_{k} \psi_{k}(\x') \sum_l c_{l} \psi_{l}(\x) \ket{g} \\
--\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x)  \sum_k c_{k} \psi_{k}(\x') \sum_{l} c_{l}^\dagger \psi_{l}^\ast (\x') \sum_l c_{l} \psi_{l}(\x) \ket{g} \\
--\bra{g}\sum_k c_{k}^\dagger \psi_{k}^\ast(\x) c_{k} \psi_{k}(\x') \sum_{l} c_{l}^\dagger \psi_{l}^\ast (\x') c_{l} \psi_{l}(\x) \ket{g} \\
--\bra{g}\sum_k c_{k}^\dagger c_{k} \psi_{k}^\ast(\x) \psi_{k}(\x') \sum_{l} c_{l}^\dagger  c_{l}\psi_{l}^\ast (\x') \psi_{l}(\x) \ket{g} \\
--\bra{g}\sum_k c_{k}^\dagger c_{k} \frac{1}{\sqrt{\V}} e^{i\vec{k}\cdot\x} \frac{1}{\sqrt{\V}}e^{-i\vec{k}\cdot\x'} \sum_{l} c_{l}^\dagger  c_{l} \frac{1}{\sqrt{\V}}e^{i\vec{l}\cdot\x'} \frac{1}{\sqrt{\V}}e^{-i\vec{l}\cdot\x}\ket{g} \\
-\frac{-1}{\V^2}\bra{g}\sum_k c_{k}^\dagger c_{k} e^{i\vec{k}\cdot(\x-\x')} \sum_{l} c_{l}^\dagger  c_{l} e^{i\vec{l}\cdot(\x'-\x)} \ket{g} \\
--\frac{1}{\V}\sum_k e^{i\vec{k}\cdot(\x-\x')} \bra{g} c_{k}^\dagger c_{k} \ket{g} \frac{1}{\V} \sum_l e^{i\vec{l}\cdot(\x'-\x)} \bra{g} c_{l}^\dagger  c_{l} \ket{g} \\
--9\left(\frac{N}{2\V}\right)^2 \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2
-\end{align*}
+  \only<4>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{-i\vec{k}\cdot\x}e^{i\vec{k}\cdot\x'}e^{i\vec{l}\cdot\x}e^{-i\vec{l}\cdot\x'}
+    \end{gathered}
+  \end{equation*}
+  }
 
-In case $2$ we see $k=n, l=m$ so we reduce to:
-\begin{align*}
-\bra{g}\sum_k c_{k,\sigma}^\dagger \psi_{k,\sigma}^\ast(\x) \sum_{l} c_{l,\sigma'}^\dagger \psi_{l,\sigma'}^\ast (\x') \sum_l c_{l,\sigma'} \psi_{l,\sigma'}(\x') \sum_k c_{k,\sigma} \psi_{k,\sigma}(\x) \ket{g} \\
-+\bra{g}\sum_k c_{k,\sigma}^\dagger \psi_{k,\sigma}^\ast(\x) \sum_k c_{k,\sigma} \psi_{k,\sigma}(\x) \sum_{l} c_{l,\sigma'}^\dagger \psi_{l,\sigma'}^\ast (\x') \sum_l c_{l,\sigma'} \psi_{l,\sigma'}(\x')  \ket{g} \\
-\frac{1}{\V^2} \bra{g} \sum_k c_{k,\sigma}^\dagger c_{k,\sigma} \sum_l c_{l,\sigma'}^\dagger c_{l,\sigma'} \ket{g} \\
-\left(\frac{N}{2\V}\right)^2
-\end{align*}
+  \only<5>{
+  \begin{equation*}
+    \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
 
-Thus combining the final pieces:
-\begin{align*}
-\left(\frac{N}{2\V}\right)^2 -9\delta_{\sigma\sigma'}\left(\frac{N}{2\V}\right)^2 \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2 = \left(\frac{N}{2\V}\right)^2 g_{\sigma\sigma'}(\x-\x') \\
-1 -9\delta_{\sigma\sigma'} \left( \frac{\sin(k_Fr) - k_Fr \cos(k_Fr)}{(k_Fr)^3}\right)^2 =  g_{\sigma\sigma'}(\x-\x')
-\end{align*}
+  \only<2>{
+  \begin{block}{Commutation for fermions}
+    \begin{equation*}
+      \{ \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} \} = \delta_{k,l} \implies
+      \hat{c}_{\textbf{l}\sigma}^\dagger \hat{c}_{\textbf{k}\sigma} =
+      - \hat{c}_{\textbf{k}\sigma} \hat{c}_{\textbf{l}\sigma}^\dagger + \delta_{k,l}
+    \end{equation*}
+  \end{block}
+  }
 
-And we see for $\sigma \neq \sigma'$ the density $g_{\sigma\sigma'}=1$.
-For $\sigma = \sigma'$ the density looks as follows:
+  \only<3>{
+  \begin{block}{Wave functions}
+    \begin{equation*}
+      \begin{gathered}
+        \psi_{\textbf{k}\sigma}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}\\
+        \psi_{\textbf{k}\sigma}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}
+      \end{gathered}
+    \end{equation*}
+  \end{block}
+  }
+\end{frame}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{Density}
-\end{figure}
+\begin{frame}[t]{Density for equal spin}
+\vspace{0.6cm}
+Insert identity operator:
+\only<1>{
+  \begin{equation*}
+      \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \hat{\mathcal{I}} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
+\only<2>{
+  \begin{equation*}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck, \textbf{l}}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \sum_{n}\ket{n}\bra{n} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+  }
+\only<3>{
+  \begin{equation*}
+        \begin{gathered}
+      \rho(\x', \sigma) = -\frac{1}{\V^2}
+      \sum_{\veck}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')} \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{i\vec{l}\cdot(\x'-\x)}
+    \end{gathered}
+  \end{equation*}
+
+}
+
 \end{frame}

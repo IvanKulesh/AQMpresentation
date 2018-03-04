@@ -408,10 +408,12 @@
 \begin{frame}[t]{Density for equal spin}
 \vspace{0.6cm}
  If spins are equal
-  \begin{equation*}
-    \sigma = \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{m}\\
-      \textbf{l} = \textbf{n} \end{cases}
-  \end{equation*}
+ \begin{equation*}
+   \sigma = \sigma' \implies \begin{cases}   \textbf{k} = \textbf{n}\\
+     \textbf{l} = \textbf{m} \end{cases} \quad \text{or} \quad
+     \begin{cases}   \textbf{k} = \textbf{m}\\
+       \textbf{l} = \textbf{n} \end{cases}
+ \end{equation*}
 
   We can simplify expression for density:
   \only<1,2>{
@@ -433,7 +435,7 @@
       -\sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       \psi_{\veck\sigma}^\ast(\x) \psi_{\textbf{k}\sigma} (\x')
-       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x)
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x) + \Delta
     \end{gathered}
   \end{equation*}
   }
@@ -444,18 +446,9 @@
       \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{-i\vec{k}\cdot\x}e^{i\vec{k}\cdot\x'}e^{i\vec{l}\cdot\x}e^{-i\vec{l}\cdot\x'}
-    \end{gathered}
-  \end{equation*}
-  }
-
-  \only<5>{
-  \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma) = -\frac{1}{\V^2}
-      \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+      e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)} +\\
+      + \frac{1}{\V^2}\sum_{\veck}
+      \bra{g}\hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}\ket{g}
     \end{gathered}
   \end{equation*}
   }
@@ -475,7 +468,7 @@
     \begin{equation*}
       \begin{gathered}
         \psi_{\textbf{k}\sigma}(\x') = \frac{1}{\sqrt{\V}} e^{i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}\\
-        \psi_{\textbf{k}\sigma}^\ast(\x') = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x'} \: \boldsymbol{\sigma}
+        \psi_{\textbf{k}\sigma}^\ast(\x) = \frac{1}{\sqrt{\V}} e^{-i\textbf{k}\cdot \x} \: \boldsymbol{\sigma}
       \end{gathered}
     \end{equation*}
   \end{block}
@@ -491,7 +484,7 @@ Insert identity operator:
       \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \hat{\mathcal{I}} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+      e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)}
     \end{gathered}
   \end{equation*}
   }
@@ -501,20 +494,40 @@ Insert identity operator:
       \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma} \: \sum_{n}\ket{n}\bra{n} \: \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{i\vec{k}\cdot(\x-\x')}e^{i\vec{l}\cdot(\x'-\x)}
+      e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)}
     \end{gathered}
   \end{equation*}
   }
-\only<3>{
-  \begin{equation*}
-        \begin{gathered}
-      \rho(\x', \sigma) = -\frac{1}{\V^2}
-      \sum_{\veck}
-      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{i\vec{k}\cdot(\x-\x')} \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{i\vec{l}\cdot(\x'-\x)}
-    \end{gathered}
-  \end{equation*}
 
+\only<1>{
+\begin{block}{Identuty}
+  \begin{equation*}
+    \hat{\mathcal{I}} = \sum_{n}\ket{n}\bra{n}
+  \end{equation*}
+\end{block}
 }
 
+\only<2>{
+\begin{block}{Fock space}
+  \begin{equation*}
+    \bra{n}\ket{g} = \delta_{n,g}
+  \end{equation*}
+\end{block}
+}
+
+\end{frame}
+
+\begin{frame}{Density for equal spin}
+
+  \begin{equation*}
+        \begin{gathered}
+      \rho(\x', \sigma) = \\ =  -\frac{1}{\V^2} \left [
+      \sum_{\veck}
+      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}\ket{g}e^{-i\textbf{k}(\x' - \x)}
+      \right] \left [
+      \sum_{\textbf{l}}\bra{g} \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+      e^{-i\textbf{l}(\x' - \x)} \right] 
+      + \left ( \frac{N}{2\V}\right )^2
+    \end{gathered}
+  \end{equation*}
 \end{frame}
