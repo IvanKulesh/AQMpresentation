@@ -423,9 +423,10 @@
  If spins are equal
  \begin{equation*}
    \sigma = \sigma' \implies \begin{cases}   \textbf{k} = \textbf{n}\\
-     \textbf{l} = \textbf{m} \end{cases} \quad \text{or} \quad
+     \textbf{l} = \textbf{m}
+     \end{cases} \quad \text{or} \quad
      \begin{cases}   \textbf{k} = \textbf{m}\\
-       \textbf{l} = \textbf{n} \end{cases}
+     \textbf{l} = \textbf{n} \end{cases} \quad \text{and} \quad \textbf{k} \neq \textbf{l}
  \end{equation*}
 
   We can simplify expression for density:
@@ -461,7 +462,8 @@
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)} +\\
       + \frac{1}{\V^2}\sum_{\veck}
-      \bra{g}\hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}\ket{g}
+      \bra{g}\hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
+      \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}\ket{g}
       e^{-i\veck\cdot\x}e^{i\veck\cdot\x'}e^{i\textbf{k}\cdot\x}e^{-i\textbf{k}\cdot\x'}
     \end{gathered}
   \end{equation*}
