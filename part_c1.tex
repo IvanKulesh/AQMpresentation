@@ -40,7 +40,7 @@
   But we want to use momentum space:
 
   \begin{block}{Fourier tranform}
-    $$\hat{\psi}_{\veck, \sigma}(\x) = \sum_{\veck} \hat{c}_{\veck,\sigma} \psi_{\veck,\sigma}(\x)$$
+    $$\hat{\psi}_{\sigma}(\x) = \sum_{\veck} \hat{c}_{\veck,\sigma} \psi_{\veck,\sigma}(\x)$$
   \end{block}
   \begin{equation*}
     \begin{gathered}
@@ -220,7 +220,8 @@
   If spins are different
   \begin{equation*}
     \sigma \ne \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{n}\\
-      \textbf{l} = \textbf{m} \end{cases}
+      \textbf{l} = \textbf{m} \\
+      \textbf{k} \neq \textbf{l}\end{cases}
   \end{equation*}
 
   We can simplify expression for density:
@@ -277,10 +278,11 @@
   If spins are different
   \begin{equation*}
     \sigma \ne \sigma' \implies \text{ only } \begin{cases}   \textbf{k} = \textbf{n}\\
-      \textbf{l} = \textbf{m} \end{cases}
+      \textbf{l} = \textbf{m} \\
+      \textbf{k} \neq \textbf{l}\end{cases}
   \end{equation*}
 
-  We can simplify expression for density:
+  We can simplify the expression for density:
   \only<1>{
   \begin{equation*}
     \begin{gathered}
@@ -320,10 +322,7 @@
       \rho(\x', \sigma') = \frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
-      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g} -\\
-      - \delta_{\sigma, \sigma'}\frac{1}{\V^2}\sum_{\veck}\bra{g} \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
-      \hat{c}_{\textbf{k},\sigma'}^\dagger \hat{c}_{\textbf{k},\sigma'} \ket{g}
-    \end{gathered}
+      \hat{c}_{\textbf{l},\sigma'}^\dagger \hat{c}_{\textbf{l},\sigma'} \ket{g}    \end{gathered}
   \end{equation*}
   }
 
@@ -449,7 +448,7 @@
       -\sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
       \psi_{\veck\sigma}^\ast(\x) \psi_{\textbf{k}\sigma} (\x')
-       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x) + \Delta
+       \psi_{\textbf{l}\sigma}^\ast (\x') \psi_{\textbf{l}\sigma} (\x)
     \end{gathered}
   \end{equation*}
   }
@@ -460,25 +459,21 @@
       \rho(\x', \sigma) = -\frac{1}{\V^2}
       \sum_{\veck, \textbf{l}}
       \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)} +\\
-      + \frac{1}{\V^2}\sum_{\veck}
-      \bra{g}\hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}
-      \hat{c}_{\veck,\sigma}^{\dagger} \hat{c}_{\textbf{k},\sigma}\ket{g}
-      e^{-i\veck\cdot\x}e^{i\veck\cdot\x'}e^{i\textbf{k}\cdot\x}e^{-i\textbf{k}\cdot\x'}
+      e^{-i\textbf{k}(\x - \x')} e^{-i\textbf{l}(\x' - \x)}
     \end{gathered}
   \end{equation*}
   }
 
-  \only<5>{
-  \begin{equation*}
-    \begin{gathered}
-      \rho(\x', \sigma) = -\frac{1}{\V^2}
-      \sum_{\veck, \textbf{l}}
-      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
-      e^{-i\veck\cdot(\x-\x')}e^{-i\textbf{l}\cdot(\x'-\x)}
-    \end{gathered}
-  \end{equation*}
-  }
+%  \only<5>{
+%  \begin{equation*}
+%    \begin{gathered}
+%      \rho(\x', \sigma) = -\frac{1}{\V^2}
+%      \sum_{\veck, \textbf{l}}
+%      \bra{g} \hat{c}_{\veck\sigma}^{\dagger} \hat{c}_{\textbf{k}\sigma}  \hat{c}_{\textbf{l}\sigma}^\dagger  \hat{c}_{\textbf{l}\sigma} \ket{g}
+%      e^{-i\veck\cdot(\x-\x')}e^{-i\textbf{l}\cdot(\x'-\x)}
+%    \end{gathered}
+%  \end{equation*}
+%  }
 
   \only<2>{
   \begin{block}{Commutation for fermions}
